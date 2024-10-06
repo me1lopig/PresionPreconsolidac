@@ -1,0 +1,13 @@
+# cálculo de la presion de presonsolidacion mediente varios métodos con la librería soilphysics
+
+library("soilphysics")
+
+pres <- c(1,12.5,25,50,100,200,400,800,1600)
+VR <- c(0.846,0.829,0.820,0.802,0.767,0.717,0.660,0.595,0.532)
+
+metodos<-c("casagrande", "VCLzero", "reg1", "reg2", "reg3", "reg4", "pacheco")
+
+for (metodo in metodos)
+{   R <- sigmaP(VR, pres, method = metodo)
+    print(R)
+}
